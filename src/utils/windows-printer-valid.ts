@@ -21,12 +21,12 @@ export default function isValidPrinter(printer: string): {
     let [label, value] = line.split(":").map((el) => el.trim());
 
     // handle array dots
-    if (value.match(/^{(.*)(\.{3})}$/)) {
+    if (value?.match(/^{(.*)(\.{3})}$/)) {
       value = value.replace("...}", "}");
     }
 
     // handle array returns
-    const matches = value.match(/^{(.*)}$/);
+    const matches = value?.match(/^{(.*)}$/);
 
     if (matches && matches[1]) {
       // @ts-ignore
